@@ -12,7 +12,13 @@ export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { scrollYProgress } = useScroll();
+  const heroRef = useRef<HTMLElement>(null);
+  
+  // Track scroll progress within the hero section only
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end end"]
+  });
   
   // Smooth scroll progress
   const smoothProgress = useSpring(scrollYProgress, {
@@ -135,7 +141,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[500vh] bg-black">
+    <section ref={heroRef} className="relative h-[500vh] bg-black">
       {/* Sticky Video/Canvas Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Canvas for Scroll Animation */}
