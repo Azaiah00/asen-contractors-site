@@ -22,31 +22,38 @@ export default function Hero() {
   });
 
   // Card animations based on scroll
-  // We use zIndex to ensure only the active card is clickable
-  const card1Opacity = useTransform(smoothProgress, [0, 0.1, 0.14], [1, 1, 0]);
-  const card1Y = useTransform(smoothProgress, [0, 0.1], [0, -50]);
-  const card1Z = useTransform(smoothProgress, [0, 0.14, 0.15], [10, 10, 0]);
+  // Equal distribution: 6 cards, each gets ~13% of scroll time with transitions
+  // All cards complete by 0.82 so last card is fully visible before "Our Values"
   
-  const card2Opacity = useTransform(smoothProgress, [0.12, 0.18, 0.28, 0.32], [0, 1, 1, 0]);
-  const card2Y = useTransform(smoothProgress, [0.12, 0.18, 0.28], [50, 0, -50]);
-  const card2Z = useTransform(smoothProgress, [0.12, 0.32, 0.33], [10, 10, 0]);
+  // Card 1: "The Epitome of Luxury Craftsmanship"
+  const card1Opacity = useTransform(smoothProgress, [0, 0.06, 0.10], [1, 1, 0]);
+  const card1Y = useTransform(smoothProgress, [0, 0.06], [0, -50]);
+  const card1Z = useTransform(smoothProgress, [0, 0.10, 0.11], [10, 10, 0]);
+  
+  // Card 2: "Mastery In Every Detail"
+  const card2Opacity = useTransform(smoothProgress, [0.08, 0.14, 0.22, 0.26], [0, 1, 1, 0]);
+  const card2Y = useTransform(smoothProgress, [0.08, 0.14, 0.22], [50, 0, -50]);
+  const card2Z = useTransform(smoothProgress, [0.08, 0.26, 0.27], [10, 10, 0]);
 
-  // NEW SEO CARD - After Mastery
-  const cardSEOOpacity = useTransform(smoothProgress, [0.3, 0.36, 0.46, 0.5], [0, 1, 1, 0]);
-  const cardSEOY = useTransform(smoothProgress, [0.3, 0.36, 0.46], [50, 0, -50]);
-  const cardSEOZ = useTransform(smoothProgress, [0.3, 0.5, 0.51], [10, 10, 0]);
+  // Card SEO: "Serving Richmond, VA & Surrounding Areas"
+  const cardSEOOpacity = useTransform(smoothProgress, [0.24, 0.30, 0.38, 0.42], [0, 1, 1, 0]);
+  const cardSEOY = useTransform(smoothProgress, [0.24, 0.30, 0.38], [50, 0, -50]);
+  const cardSEOZ = useTransform(smoothProgress, [0.24, 0.42, 0.43], [10, 10, 0]);
 
-  const card3Opacity = useTransform(smoothProgress, [0.48, 0.54, 0.64, 0.68], [0, 1, 1, 0]);
-  const card3Y = useTransform(smoothProgress, [0.48, 0.54, 0.64], [50, 0, -50]);
-  const card3Z = useTransform(smoothProgress, [0.48, 0.68, 0.69], [10, 10, 0]);
+  // Card 3: "Your Home Repair Solution"
+  const card3Opacity = useTransform(smoothProgress, [0.40, 0.46, 0.54, 0.58], [0, 1, 1, 0]);
+  const card3Y = useTransform(smoothProgress, [0.40, 0.46, 0.54], [50, 0, -50]);
+  const card3Z = useTransform(smoothProgress, [0.40, 0.58, 0.59], [10, 10, 0]);
 
-  const card5Opacity = useTransform(smoothProgress, [0.66, 0.72, 0.82, 0.86], [0, 1, 1, 0]);
-  const card5Y = useTransform(smoothProgress, [0.66, 0.72, 0.82], [50, 0, -50]);
-  const card5Z = useTransform(smoothProgress, [0.66, 0.86, 0.87], [10, 10, 0]);
+  // Card 5: "Uncompromising Standards"
+  const card5Opacity = useTransform(smoothProgress, [0.56, 0.62, 0.70, 0.74], [0, 1, 1, 0]);
+  const card5Y = useTransform(smoothProgress, [0.56, 0.62, 0.70], [50, 0, -50]);
+  const card5Z = useTransform(smoothProgress, [0.56, 0.74, 0.75], [10, 10, 0]);
 
-  const card4Opacity = useTransform(smoothProgress, [0.84, 0.92], [0, 1]);
-  const card4Y = useTransform(smoothProgress, [0.84, 0.92], [50, 0]);
-  const card4Z = useTransform(smoothProgress, [0.84, 1], [10, 10]);
+  // Card 4: "Ready To Start Your Project?" (Final CTA - stays visible longer)
+  const card4Opacity = useTransform(smoothProgress, [0.72, 0.78], [0, 1]);
+  const card4Y = useTransform(smoothProgress, [0.72, 0.78], [50, 0]);
+  const card4Z = useTransform(smoothProgress, [0.72, 1], [10, 10]);
 
   // Frame index based on scroll
   const frameIndex = useTransform(smoothProgress, [0, 1], [1, TOTAL_FRAMES]);
