@@ -223,7 +223,7 @@ export default function Hero() {
                   {/* Placeholder Image 1: Luxury Flooring */}
                   <div className="aspect-[4/5] rounded-xl border border-gold-600/20 overflow-hidden bg-dark-light">
                     <img 
-                      src="https://images.unsplash.com/photo-1581850518616-bcb8077fa2aa?auto=format&fit=crop&q=80&w=600" 
+                      src="/rs=w_2560,h_1440 (1).webp" 
                       alt="Luxury Flooring" 
                       className="w-full h-full object-cover"
                       loading="lazy"
