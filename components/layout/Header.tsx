@@ -98,10 +98,14 @@ export default function Header() {
 
         {/* Mobile Nav Overlay */}
         <motion.div
-          className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8 md:hidden"
-          initial={{ opacity: 0, x: "100%" }}
-          animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? "0%" : "100%" }}
+          className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+          initial={{ x: "100%" }}
+          animate={{ x: isOpen ? "0%" : "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          style={{ 
+            backgroundColor: isOpen ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0)",
+            pointerEvents: isOpen ? "auto" : "none" 
+          }}
         >
           {navLinks.map((link) => (
             <Link 
