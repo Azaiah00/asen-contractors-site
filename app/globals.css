@@ -18,6 +18,33 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
 
+/* Custom Scrollbar Styling - Black and Gold Theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 #000000;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+  border: 2px solid #000000;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #FFD700;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
