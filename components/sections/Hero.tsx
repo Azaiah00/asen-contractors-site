@@ -162,8 +162,12 @@ export default function Hero() {
           
           {/* Card 1: Main Headline */}
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
-            style={{ opacity: card1Opacity, y: card1Y, zIndex: card1Z }}
+            className="absolute top-24 md:top-28 bottom-0 left-0 right-0 flex items-center justify-center px-6 pointer-events-none"
+            style={{ 
+              opacity: card1Opacity, 
+              y: card1Y, 
+              zIndex: card1Z
+            }}
           >
             <GlassyCard className="max-w-4xl text-center pointer-events-auto">
               <motion.span 
@@ -194,7 +198,7 @@ export default function Hero() {
 
           {/* Card 2: Services Overview */}
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
+            className="absolute top-24 md:top-28 bottom-0 left-0 right-0 flex items-center justify-center px-6 pointer-events-none"
             style={{ opacity: card2Opacity, y: card2Y, zIndex: card2Z }}
           >
             <GlassyCard className="max-w-5xl pointer-events-auto">
@@ -241,7 +245,7 @@ export default function Hero() {
 
           {/* Card 3: NEW SEO CARD - Service Areas & Expertise */}
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
+            className="absolute top-24 md:top-28 bottom-0 left-0 right-0 flex items-center justify-center px-6 pointer-events-none"
             style={{ opacity: cardSEOOpacity, y: cardSEOY, zIndex: cardSEOZ }}
           >
             <GlassyCard className="max-w-4xl text-center pointer-events-auto">
@@ -263,7 +267,7 @@ export default function Hero() {
 
           {/* Card 4: Trust & Quality */}
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
+            className="absolute top-24 md:top-28 bottom-0 left-0 right-0 flex items-center justify-center px-6 pointer-events-none"
             style={{ opacity: card3Opacity, y: card3Y, zIndex: card3Z }}
           >
             <GlassyCard className="max-w-4xl text-center pointer-events-auto">
@@ -290,7 +294,7 @@ export default function Hero() {
 
           {/* Card 5: Value Proposition Card */}
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
+            className="absolute top-24 md:top-28 bottom-0 left-0 right-0 flex items-center justify-center px-6 pointer-events-none"
             style={{ opacity: card5Opacity, y: card5Y, zIndex: card5Z }}
           >
             <GlassyCard className="max-w-4xl text-center pointer-events-auto">
@@ -319,7 +323,7 @@ export default function Hero() {
 
           {/* Card 6: Final CTA */}
           <motion.div 
-            className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none"
+            className="absolute top-24 md:top-28 bottom-0 left-0 right-0 flex items-center justify-center px-6 pointer-events-none"
             style={{ opacity: card4Opacity, y: card4Y, zIndex: card4Z }}
           >
             <GlassyCard className="max-w-3xl text-center pointer-events-auto">
