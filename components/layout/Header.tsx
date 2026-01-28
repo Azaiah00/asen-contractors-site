@@ -90,15 +90,23 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        {!isOpen && (
-          <button 
-            className="md:hidden relative z-[80] text-white"
-            onClick={() => setIsOpen(!isOpen)}
+        {/* Mobile CTA and Menu Toggle */}
+        <div className="md:hidden flex items-center gap-4">
+          <button
+            onClick={() => router.push("/booking")}
+            className="px-4 py-2 bg-gold-600 text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-gold-500 transition-colors"
           >
-            <Menu />
+            Book Now
           </button>
-        )}
+          {!isOpen && (
+            <button 
+              className="relative z-[80] text-white"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <Menu />
+            </button>
+          )}
+        </div>
 
         {/* Mobile Nav Overlay */}
         <AnimatePresence>
