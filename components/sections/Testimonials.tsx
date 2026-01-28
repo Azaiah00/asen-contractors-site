@@ -57,12 +57,21 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
+              className="flex flex-col items-center"
             >
-              <GlassyCard className="h-full relative pt-16">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gold-600 rounded-full flex items-center justify-center shadow-2xl">
+              {/* Quotation mark icon with stars above the card */}
+              <div className="flex items-center justify-center gap-3 mb-6">
+                {/* Left star */}
+                <Star className="w-6 h-6 text-gold-500 fill-gold-500" />
+                {/* Gold circle with quotation marks */}
+                <div className="w-16 h-16 bg-gold-600 rounded-full flex items-center justify-center shadow-2xl">
                   <Quote className="w-8 h-8 text-black" />
                 </div>
-                
+                {/* Right star */}
+                <Star className="w-6 h-6 text-gold-500 fill-gold-500" />
+              </div>
+              
+              <GlassyCard className="h-full w-full">
                 <div className="flex justify-center mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-gold-500 fill-gold-500" />
