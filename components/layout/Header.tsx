@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, Mail, MapPin } from "lucide-react";
 import Button from "@/components/ui/Button";
@@ -16,6 +17,7 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const { scrollY } = useScroll();
   
   const headerBg = useTransform(
@@ -89,12 +91,14 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden relative z-[80] text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X /> : <Menu />}
-        </button>
+        {!isOpen && (
+          <button 
+            className="md:hidden relative z-[80] text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <Menu />
+          </button>
+        )}
 
         {/* Mobile Nav Overlay */}
         <AnimatePresence>
@@ -192,11 +196,15 @@ export default function Header() {
                     
                     {/* Book Now Button */}
                     <div className="mt-8">
-                      <Link href="/booking" onClick={() => setIsOpen(false)}>
-                        <Button variant="primary" className="w-full bg-black text-white hover:bg-black/90">
-                          Book Now
-                        </Button>
-                      </Link>
+                      <button 
+                        onClick={() => {
+                          setIsOpen(false);
+                          router.push("/booking");
+                        }}
+                        className="w-full bg-black text-white hover:bg-black/90 px-8 py-4 rounded-full font-sans font-semibold text-sm uppercase tracking-widest transition-all duration-300"
+                      >
+                        Book Now
+                      </button>
                     </div>
                   </div>
                 </div>
