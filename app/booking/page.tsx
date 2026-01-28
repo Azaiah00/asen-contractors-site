@@ -29,7 +29,7 @@ export default function BookingPage() {
         <Header />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-6">
+        <section className="pt-28 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.span 
               className="text-gold-500 font-sans tracking-[0.3em] uppercase text-sm mb-4 block"
@@ -39,7 +39,7 @@ export default function BookingPage() {
               Book Your Consultation
             </motion.span>
             <motion.h1 
-              className="text-4xl md:text-6xl font-serif text-white mb-6"
+              className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -47,7 +47,7 @@ export default function BookingPage() {
               Schedule Your <span className="text-gold-500 italic">Free Consultation</span>
             </motion.h1>
             <motion.p 
-              className="text-gray-300 text-lg max-w-2xl mx-auto"
+              className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -58,13 +58,13 @@ export default function BookingPage() {
         </section>
 
         {/* Booking Form Section */}
-        <section className="py-12 px-6">
+        <section className="py-10 sm:py-12 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <GlassyCard className="p-8 md:p-12">
+            <GlassyCard className="p-6 sm:p-8 md:p-12">
               <form className="space-y-8">
                 {/* Personal Information */}
                 <div>
-                  <h3 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
+                  <h3 className="text-xl sm:text-2xl font-serif text-white mb-4 sm:mb-6 flex items-center gap-3">
                     <Calendar className="w-6 h-6 text-gold-500" />
                     Personal Information
                   </h3>
@@ -74,7 +74,7 @@ export default function BookingPage() {
                       <input 
                         type="text" 
                         required
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                         placeholder="John Doe"
                       />
                     </div>
@@ -83,7 +83,7 @@ export default function BookingPage() {
                       <input 
                         type="tel" 
                         required
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                         placeholder="804-000-0000"
                       />
                     </div>
@@ -93,7 +93,7 @@ export default function BookingPage() {
                     <input 
                       type="email" 
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -101,7 +101,7 @@ export default function BookingPage() {
 
                 {/* Project Details */}
                 <div>
-                  <h3 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
+                  <h3 className="text-xl sm:text-2xl font-serif text-white mb-4 sm:mb-6 flex items-center gap-3">
                     <Clock className="w-6 h-6 text-gold-500" />
                     Project Details
                   </h3>
@@ -110,13 +110,13 @@ export default function BookingPage() {
                       <label className="text-xs uppercase tracking-widest text-gray-400">Preferred Date</label>
                       <input 
                         type="date" 
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs uppercase tracking-widest text-gray-400">Preferred Time</label>
                       <select 
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                       >
                         <option value="">Select a time</option>
                         <option value="morning">Morning (8am - 12pm)</option>
@@ -129,7 +129,7 @@ export default function BookingPage() {
                     <label className="text-xs uppercase tracking-widest text-gray-400">Service Type *</label>
                     <select 
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                     >
                       <option value="">Select a service</option>
                       <option value="carpentry">Custom Carpentry</option>
@@ -146,7 +146,7 @@ export default function BookingPage() {
                     <textarea 
                       rows={5}
                       required
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors resize-none"
                       placeholder="Tell us about your project, timeline, and any specific requirements..."
                     />
                   </div>
@@ -154,7 +154,7 @@ export default function BookingPage() {
 
                 {/* Location */}
                 <div>
-                  <h3 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
+                  <h3 className="text-xl sm:text-2xl font-serif text-white mb-4 sm:mb-6 flex items-center gap-3">
                     <MapPin className="w-6 h-6 text-gold-500" />
                     Project Location
                   </h3>
@@ -162,7 +162,7 @@ export default function BookingPage() {
                     <label className="text-xs uppercase tracking-widest text-gray-400">Address</label>
                     <input 
                       type="text" 
-                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-gold-500 outline-none transition-colors"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-gold-500 outline-none transition-colors"
                       placeholder="Street address, City, State, ZIP"
                     />
                   </div>
@@ -170,7 +170,7 @@ export default function BookingPage() {
 
                 {/* Submit Button */}
                 <div className="pt-4">
-                  <Button variant="primary" className="w-full py-4 text-lg" type="submit">
+                  <Button variant="primary" className="w-full py-4 text-base sm:text-lg" type="submit">
                     Book Your Consultation <Send className="w-5 h-5 ml-2" />
                   </Button>
                   <p className="text-gray-400 text-sm text-center mt-4">
@@ -183,9 +183,9 @@ export default function BookingPage() {
         </section>
 
         {/* Contact Info Section */}
-        <section className="py-12 px-6">
+        <section className="py-10 sm:py-12 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 { icon: Phone, title: "Call Us", content: "804-405-7796", href: "tel:804-405-7796" },
                 { icon: Mail, title: "Email Us", content: "asencontractors@gmail.com", href: "mailto:asencontractors@gmail.com" },
