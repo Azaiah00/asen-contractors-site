@@ -216,11 +216,23 @@ export default function Hero() {
                   </ul>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="aspect-[4/5] rounded-xl border border-gold-600/20 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581850518616-bcb8077fa2aa?auto=format&fit=crop&q=80&w=600" alt="Luxury Flooring" className="w-full h-full object-cover" />
+                  {/* Placeholder Image 1: Luxury Flooring */}
+                  <div className="aspect-[4/5] rounded-xl border border-gold-600/20 overflow-hidden bg-dark-light">
+                    <img 
+                      src="https://images.unsplash.com/photo-1581850518616-bcb8077fa2aa?auto=format&fit=crop&q=80&w=600" 
+                      alt="Luxury Flooring" 
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
-                  <div className="aspect-[4/5] rounded-xl border border-gold-600/20 mt-8 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600" alt="Premium Painting" className="w-full h-full object-cover" />
+                  {/* Placeholder Image 2: Premium Painting */}
+                  <div className="aspect-[4/5] rounded-xl border border-gold-600/20 mt-8 overflow-hidden bg-dark-light">
+                    <img 
+                      src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600" 
+                      alt="Premium Painting" 
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
