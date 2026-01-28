@@ -21,7 +21,7 @@ export default function Header() {
   const headerBg = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.8)"]
+    ["rgba(0, 0, 0, 0.7)", "rgba(0, 0, 0, 0.9)"]
   );
   
   const headerBlur = useTransform(
@@ -33,19 +33,22 @@ export default function Header() {
   const headerBorder = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(212, 175, 55, 0)", "rgba(212, 175, 55, 0.2)"]
+    ["rgba(212, 175, 55, 0.2)", "rgba(212, 175, 55, 0.3)"]
   );
 
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300"
-      style={{ 
-        backgroundColor: headerBg,
-        backdropFilter: headerBlur,
-        borderBottom: `1px solid ${headerBorder}`
-      }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <motion.div 
+        className="max-w-7xl mx-auto rounded-full px-6 md:px-8 py-4 backdrop-blur-xl border border-gold-600/20"
+        style={{ 
+          backgroundColor: headerBg,
+          backdropFilter: headerBlur,
+          borderColor: headerBorder
+        }}
+      >
+        <div className="flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-50">
           <motion.div 
@@ -116,7 +119,8 @@ export default function Header() {
             <Button variant="primary">Get A Quote</Button>
           </div>
         </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </motion.header>
   );
 }
