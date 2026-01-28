@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, Menu, X } from "lucide-react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { Phone, Menu, X, Mail, MapPin } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const navLinks = [
@@ -90,43 +90,120 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden relative z-50 text-white"
+          className="md:hidden relative z-[80] text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X /> : <Menu />}
         </button>
 
         {/* Mobile Nav Overlay */}
-        <motion.div
-          className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 md:hidden"
-          initial={{ x: "100%" }}
-          animate={{ x: isOpen ? "0%" : "100%" }}
-          transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          style={{ 
-            backgroundColor: isOpen ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0)",
-            pointerEvents: isOpen ? "auto" : "none" 
-          }}
-        >
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className="text-3xl font-serif text-white hover:text-gold-500 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="mt-8 flex flex-col items-center gap-6">
-            <a href="tel:804-405-7796" className="text-xl text-gold-500 flex items-center gap-3">
-              <Phone className="w-5 h-5" />
-              804-405-7796
-            </a>
-            <Link href="/booking">
-              <Button variant="primary">Book Now</Button>
-            </Link>
-          </div>
-        </motion.div>
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                className="fixed inset-0 bg-black z-[60] md:hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+              />
+              
+              {/* Mobile Menu */}
+              <motion.div
+                className="fixed inset-0 z-[70] flex flex-col md:hidden"
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              >
+                {/* Top Section - Navigation Links with Solid Black Background */}
+                <div className="flex-1 bg-black flex flex-col items-center justify-center gap-6 px-6 pt-20 pb-8">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-6 right-6 text-white z-10"
+                    aria-label="Close menu"
+                  >
+                    <X className="w-8 h-8" />
+                  </button>
+                  
+                  {/* Logo */}
+                  <div className="mb-8">
+                    <Link href="/" onClick={() => setIsOpen(false)}>
+                      <div className="text-3xl font-serif text-white tracking-tighter">
+                        ASEN<span className="text-gold-500">.</span>
+                      </div>
+                    </Link>
+                  </div>
+                  
+                  {/* Navigation Links */}
+                  {navLinks.map((link, index) => (
+                    <Link 
+                      key={link.name} 
+                      href={link.href}
+                      className="text-2xl font-serif text-white hover:text-gold-500 transition-colors py-2"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Bottom Section - Contact/Booking with Gold Background */}
+                <div className="bg-gold-600 text-black px-6 py-12">
+                  <div className="max-w-md mx-auto">
+                    {/* Book Now Badge */}
+                    <div className="text-center mb-8">
+                      <span className="inline-block bg-gold-600 text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                        Book Now
+                      </span>
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-3xl font-serif text-black mb-2 text-center">
+                      Get In Touch
+                    </h3>
+                    <p className="text-black/80 text-center mb-8">
+                      Let's Build Your Dream Home
+                    </p>
+                    
+                    {/* Contact Information */}
+                    <div className="space-y-6">
+                      <a 
+                        href="tel:804-405-7796" 
+                        className="flex items-center gap-4 text-black hover:text-black/80 transition-colors"
+                      >
+                        <Phone className="w-6 h-6" />
+                        <span className="text-lg font-sans">804-405-7796</span>
+                      </a>
+                      <a 
+                        href="mailto:asencontractors@gmail.com" 
+                        className="flex items-center gap-4 text-black hover:text-black/80 transition-colors"
+                      >
+                        <Mail className="w-6 h-6" />
+                        <span className="text-lg font-sans">asencontractors@gmail.com</span>
+                      </a>
+                      <div className="flex items-center gap-4 text-black">
+                        <MapPin className="w-6 h-6" />
+                        <span className="text-lg font-sans">Richmond, VA & Surrounding</span>
+                      </div>
+                    </div>
+                    
+                    {/* Book Now Button */}
+                    <div className="mt-8">
+                      <Link href="/booking" onClick={() => setIsOpen(false)}>
+                        <Button variant="primary" className="w-full bg-black text-white hover:bg-black/90">
+                          Book Now
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
         </div>
       </motion.div>
     </motion.header>
