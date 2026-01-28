@@ -81,9 +81,11 @@ export default function Header() {
             <Phone className="w-4 h-4 text-gold-500" />
             <span className="text-sm font-sans font-medium">804-405-7796</span>
           </a>
-          <Button variant="primary" className="px-6 py-2.5 text-[10px]">
-            Book Now
-          </Button>
+          <Link href="/booking">
+            <Button variant="primary" className="px-6 py-2.5 text-[10px]">
+              Book Now
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -116,7 +118,9 @@ export default function Header() {
               <Phone className="w-5 h-5" />
               804-405-7796
             </a>
-            <Button variant="primary">Get A Quote</Button>
+            <Link href="/booking">
+              <Button variant="primary">Book Now</Button>
+            </Link>
           </div>
         </motion.div>
         </div>
